@@ -273,6 +273,11 @@ export function generateFeedback () {
   let inputExercise = window.localStorage.getItem('inputExercise')
   let feedbackList = getFeedback(inputExercise, feedbackAngles)
 
+  // test를 위한 추가
+  console.log('feedback 생성을 위해 사용된 각도: ' + feedbackAngles)
+  console.log('feedback: ' + feedbackList)
+  //
+
   window.localStorage.setItem('feedbackList', JSON.stringify(feedbackList))
 }
 

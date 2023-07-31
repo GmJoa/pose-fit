@@ -6,7 +6,7 @@ import {
   generateFeedback
 } from './accuracy.js'
 
-let model, webcam, ctx, labelContainer, maxPredictions
+let model, webcam, ctx
 let inputExercise, inputReps, inputSets
 
 let models = {
@@ -36,9 +36,15 @@ function prepareData () {
   let setNum = Number(window.localStorage.getItem('setNum'))
   window.localStorage.setItem('setNum', setNum ? setNum + 1 : 1)
 
+  // test를 위한 추가
+  window.localStorage.setItem('inputExercise', 'squat') // 운동 변경 시 마지막 인자값 수정
+  window.localStorage.setItem('inputReps', 5) // 한 세트당 반복 횟수 변경 시 마지막 인자값 수정
+  window.localStorage.setItem('inputSets', 3) // 총 세트수 변경 시 마지막 인자값 수정
+  //
+
   inputExercise = window.localStorage.getItem('inputExercise')
-  inputReps = window.localStorage.getItem('inputReps')
-  inputSets = window.localStorage.getItem('inputSets')
+  inputReps = Number(window.localStorage.getItem('inputReps'))
+  inputSets = Number(window.localStorage.getItem('inputSets'))
 }
 
 async function init () {
@@ -46,7 +52,6 @@ async function init () {
   const metadataPath = models[inputExercise] + 'metadata.json'
 
   model = await tmPose.load(modelPath, metadataPath)
-  maxPredictions = model.getTotalClasses()
 
   const size = 500
   const flip = true
@@ -59,11 +64,6 @@ async function init () {
   canvas.width = size
   canvas.height = size
   ctx = canvas.getContext('2d')
-  // labelContainer = document.getElementById('label-container')
-
-  // for (let i = 0; i < maxPredictions; i++) {
-  //   labelContainer.appendChild(document.createElement('div'))
-  // }
 }
 
 async function loop (timestamp) {
@@ -94,6 +94,9 @@ async function predict () {
 
       userAngles = checkAngles(inputExercise, userAngles)
       window.localStorage.setItem('feedbackAngles', saveAngles())
+      // test를 위한 추가
+      console.log('angle: ' + userAngles)
+      //
       calculateAccuracy(inputExercise, userAngles)
       userAngles.length = 0
     }
