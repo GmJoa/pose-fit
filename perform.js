@@ -37,7 +37,7 @@ function prepareData () {
   window.localStorage.setItem('setNum', setNum ? setNum + 1 : 1)
 
   // test를 위한 추가
-  window.localStorage.setItem('inputExercise', 'squat') // 운동 변경 시 마지막 인자값 수정
+  window.localStorage.setItem('inputExercise', 'lunge-left') // 운동 변경 시 마지막 인자값 수정
   window.localStorage.setItem('inputReps', 5) // 한 세트당 반복 횟수 변경 시 마지막 인자값 수정
   window.localStorage.setItem('inputSets', 3) // 총 세트수 변경 시 마지막 인자값 수정
   //
@@ -120,9 +120,10 @@ async function predict () {
     scoreToPercent()
     generateFeedback()
 
-    window.location.replace(
-      document.location.href.replace('exercise.html', 'analysis.html')
-    )
+    // window.location.replace(
+    //   document.location.href.replace('exercise.html', 'analysis.html')
+    // )
+    count = 0
   }
 
   drawPose(pose)
