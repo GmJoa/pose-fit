@@ -6,7 +6,7 @@ import {
   generateFeedback
 } from './accuracy.js'
 
-let model, webcam, ctx
+let model, webcam, ctx, labelContainer, maxPredictions
 let inputExercise, inputReps, inputSets
 
 let models = {
@@ -37,7 +37,7 @@ function prepareData () {
   window.localStorage.setItem('setNum', setNum ? setNum + 1 : 1)
 
   // test를 위한 추가
-  window.localStorage.setItem('inputExercise', 'lunge-left') // 운동 변경 시 마지막 인자값 수정
+  window.localStorage.setItem('inputExercise', 'lateralraise') // 운동 변경 시 마지막 인자값 수정
   window.localStorage.setItem('inputReps', 5) // 한 세트당 반복 횟수 변경 시 마지막 인자값 수정
   window.localStorage.setItem('inputSets', 3) // 총 세트수 변경 시 마지막 인자값 수정
   //
@@ -52,6 +52,7 @@ async function init () {
   const metadataPath = models[inputExercise] + 'metadata.json'
 
   model = await tmPose.load(modelPath, metadataPath)
+  maxPredictions = model.getTotalClasses()
 
   const size = 500
   const flip = true
@@ -64,6 +65,12 @@ async function init () {
   canvas.width = size
   canvas.height = size
   ctx = canvas.getContext('2d')
+
+  labelContainer = document.getElementById('label-container')
+
+  for (let i = 0; i < maxPredictions; i++) {
+    labelContainer.appendChild(document.createElement('div'))
+  }
 }
 
 async function loop (timestamp) {
@@ -124,6 +131,12 @@ async function predict () {
     //   document.location.href.replace('exercise.html', 'analysis.html')
     // )
     count = 0
+  }
+
+  for (let i = 0; i < maxPredictions; i++) {
+    const classPrediction =
+      prediction[i].className + ': ' + prediction[i].probability.toFixed(2)
+    labelContainer.childNodes[i].innerHTML = classPrediction
   }
 
   drawPose(pose)
