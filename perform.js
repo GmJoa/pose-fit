@@ -120,7 +120,7 @@ async function predict () {
     status = inputExercise
 
     const poseCopy = _.cloneDeep(pose)
-    userAngles = getAngle(inputExercise, poseCopy)
+    userAngles = _.cloneDeep(getAngle(inputExercise, poseCopy))
   }
 
   if (count == inputReps) {
