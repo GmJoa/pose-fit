@@ -1,0 +1,133 @@
+#tab-bar {
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    border-bottom: 2px solid #E9EEF4;
+    align-items: center;
+  }
+  #tab-bar h1 {
+    color: #326789;
+    margin-left: 165px;
+    font-weight: bold;
+  }
+  #tab-items {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  .tab-item {
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .tab-item:hover{
+    background-color: #E9EEF4;
+    color: #326789;
+  } 
+  #tab-bar button {
+    margin-right: 100px;
+    padding: 5px 10px;
+    background-color: #326789;
+    color: #E9EEF4;
+    font-weight: bold;
+  }
+  #main-content{
+    width: 1920px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #intro {
+    width: 1920px;
+    height: 1020px;
+    background-color: #E9EEF4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #intro img {
+    width: 927.15px;
+    height: 669px;
+  }
+  #intro-text {
+    margin: 20px 0;
+  }
+  #intro-text span {
+    font-size: 32px;
+    font-weight: bold;
+  }
+  .highright {
+    color: #E65C4F;
+  }
+
+  #title {
+    width: 1920px;
+    height: 443px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 0px;
+    color: #326789;
+  }
+  #title img {
+    width: 100px;
+    height: 100px;
+    margin: 50px;
+  }
+  #title h1 {
+    margin: 30px 0 50px 0;
+  }
+
+  #service {
+    width: 1500px;
+    height: 1000px;
+    padding: 30px 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-items: center;
+  }
+  .service-content {
+    width: 705px;
+    height: 455px;
+    margin: 15px;
+    padding: 20px;
+    background-color: #E9EEF4;
+  }
+  .service-title span {
+    font-size: 30px;
+    font-weight: bold;
+  }
+  .service-explain span {
+    font-size: 20px;
+    color: #326789;
+  } 
+
+  footer {
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    background-color: #E9EEF4;
+    padding: 30px 300px 10px 300px;
+  }
+  #team-name {
+    text-align: left;
+    margin-bottom: auto;
+    font-size: 30px;
+    font-weight: bold;
+    color: #326789;
+  }
+
+  #git-link {
+    text-align: right;
+    align-self: flex-end; 
+    font-size: 15px;
+    font-weight: bold;
+  }
+
+  #copyright {
+    text-align: center;
+    margin-top: auto; 
+    font-size: 20px;
+  }
