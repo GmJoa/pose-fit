@@ -1,0 +1,65 @@
+#tab-bar {
+  height: 93px;
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  border-bottom: 2px solid #E9EEF4;
+  align-items: center;
+}
+#tab-bar h1 {
+  color: #326789;
+  margin-left: 165px;
+  font-weight: bold;
+}
+#tab-bar button {
+  margin-right: 100px;
+  padding: 5px 10px;
+  background-color: #326789;
+  color: #E9EEF4;
+  font-weight: bold;
+}
+#container{
+  display: flex;
+}
+#web-cam {
+  width: 1250px;
+  height: 987px;
+}
+
+#cam-canvas {
+  height: 600px;
+  width: 600px;
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  background-color: #E9EEF4;
+}
+#exercise-info {
+  width: 670px;
+  height: 987px;
+  display: flex;
+}
+.counter {
+  height: 246px;
+  position: absolute;
+  left: 70%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+.info-left{
+  width: 200px;
+  color: #326789;
+}
+.info-right{
+
+}
+#sets{
+  top: 40%;
+}
+#reps{
+  top: 60%;
+}

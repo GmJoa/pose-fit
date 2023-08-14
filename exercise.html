@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://fonts.googleapis.com/earlyaccess/notosanskr.css"
+    />
+    <title>pose-fit</title>
+    <link rel="stylesheet" href="exercise-style.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/pose@0.8/dist/teachablemachine-pose.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+    <script type="module" src="perform.js"></script>
+    <script type="module" src="accuracy.js"></script>
+  </head>
+
+  <body>
+    <div id="tab-bar">
+      <h1>POSE FIT</h1>
+      <button>그만 두기</button>
+    </div>
+    <div id="container">
+      <div id="web-cam">
+        <canvas id="cam-canvas"></canvas>
+      </div>
+      <div id="exercise-info">
+        <div id="sets" class="counter">
+          <div class="info-left">SET</div>
+          <div class="info-right">
+            <span id="set-counter">0</span>
+          <span> / <span id="inputSets">0</span></span>
+          </div>
+        </div>
+        <div id="reps" class="counter">
+          <div class="info-left">REPS</div>
+          <div class="info-right">
+            <span id="reps-counter">0</span>
+          <span> / <span id="inputReps">0</span></span>
+          </div>
+        </div>
+      </div>
+      
+      <div id="label-container"></div>
+    </div>
+  </body>
+</html>
